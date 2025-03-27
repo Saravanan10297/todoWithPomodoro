@@ -2,10 +2,13 @@ package com.CRUD.first.Todo;
 
 import java.time.LocalDate;
 
+import jakarta.validation.constraints.Size;
+
 public class todoEntity {
 	
 	private int  id;
 	private String Username;
+	@Size(min=10 ,message="Enter atlest 10 Characters")
 	private String description;
 	private LocalDate targeDate;
 	private boolean done;

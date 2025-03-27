@@ -13,38 +13,42 @@ import com.CRUD.first.Service.AuthenticationService;
 @Controller
 public class loginController {
 	
-	private AuthenticationService authenticate;
+//	private AuthenticationService authenticate;
+//	
+//	private Logger logger = LoggerFactory.getLogger(getClass());
 	
-	private Logger logger = LoggerFactory.getLogger(getClass());
-	
-	@RequestMapping(value="login",method = RequestMethod.GET)
-	public String loginPage() {
+	@RequestMapping(value="/",method = RequestMethod.GET)
+	public String loginPage(ModelMap model) {
 		
 		//logger.debug("Request param is {}", name);
 		//logger.info("info level");
-		return "loginjsp";
+		model.put("UName","saro");
+		return "welcomePage";
 	}
+	
+	
+	
+	
 
-	@RequestMapping(value="login",method = RequestMethod.POST)
-	public String WecomePage(@RequestParam String UName,@RequestParam String Pass ,ModelMap model) {
-		model.put("UName", UName);
-		model.put("Pass", Pass);
-		
-		//logger.debug("Request param is {}", name);
-		//logger.info("info level");
-		if (authenticate.authenticate(UName,Pass)) {
-			return "welcomePage";
-		}
-		model.put("error","invailed login");
-		return "loginjsp";
-		
-	}
-
-
-	public loginController(AuthenticationService authenticate) {
-		super();
-		this.authenticate = authenticate;
-	}
+//	@RequestMapping(value="login",method = RequestMethod.POST)
+//	public String WecomePage(@RequestParam String UName,@RequestParam String Pass ,ModelMap model) {
+//		model.put("UName", UName);
+//		
+//		//logger.debug("Request param is {}", name);
+//		//logger.info("info level");
+//		if (authenticate.authenticate(UName,Pass)) {
+//			return "welcomePage";
+//		}
+//		model.put("error","invailed login");
+//		return "loginjsp";
+//		
+//	}
+//
+//
+//	public loginController(AuthenticationService authenticate) {
+//		super();
+//		this.authenticate = authenticate;
+//	}
 
 
 
